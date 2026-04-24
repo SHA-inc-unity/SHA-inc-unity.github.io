@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Артём Шлома — Портфолио</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --card: #21262d;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --green: #3fb950;
+      --orange: #d29922;
+      --purple: #bc8cff;
+      --red: #f85149;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --radius: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+    }
+    nav .logo { font-weight: 700; color: var(--text); font-size: 1.05rem; }
+    nav ul { list-style: none; display: flex; gap: 1.6rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #1a2744 0%, var(--bg) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(88,166,255,.08) 0%, transparent 70%);
+      top: -100px; left: 50%; transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .hero-name {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-title {
+      margin-top: .6rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      font-size: .78rem;
+      font-weight: 600;
+      border: 1px solid;
+    }
+    .badge-blue  { color: var(--accent);  border-color: var(--accent);  background: rgba(88,166,255,.1); }
+    .badge-green { color: var(--green);   border-color: var(--green);   background: rgba(63,185,80,.1); }
+    .badge-orange{ color: var(--orange);  border-color: var(--orange);  background: rgba(210,153,34,.1); }
+    .badge-purple{ color: var(--purple);  border-color: var(--purple);  background: rgba(188,140,255,.1); }
+    .badge-red   { color: var(--red);     border-color: var(--red);     background: rgba(248,81,73,.1); }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .55rem 1.3rem;
+      border-radius: var(--radius);
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0d1117;
+    }
+    .btn-primary:hover { background: #79b8ff; }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--muted); background: var(--card); }
+
+    .achievement-banner {
+      margin-top: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: linear-gradient(135deg, rgba(210,153,34,.15), rgba(210,153,34,.05));
+      border: 1px solid rgba(210,153,34,.3);
+      border-radius: var(--radius);
+      padding: .7rem 1.2rem;
+      font-size: .88rem;
+      color: var(--orange);
+    }
+    .achievement-banner span { font-weight: 700; }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+    }
+
+    /* SKILLS */
+    #skills { background: var(--bg2); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .9rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .skill-icon { font-size: 1.2rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .15rem .6rem;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.4rem;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .project-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-name:hover { text-decoration: underline; }
+    .project-desc { font-size: .9rem; color: var(--muted); line-height: 1.55; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; }
+
+    /* ABOUT */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+    }
+    .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent); }
+    .about-card ul { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .about-card li {
+      font-size: .9rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .about-card li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, transform .2s;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .contact-icon { font-size: 1.4rem; }
+    .contact-label { font-size: .75rem; color: var(--muted); margin-bottom: .1rem; }
+    .contact-value { font-size: .9rem; font-weight: 600; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    @media (max-width: 600px) {
+      nav ul { gap: .9rem; }
+      .hero-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">SHA</div>
+  <ul>
+    <li><a href="#skills">Навыки</a></li>
+    <li><a href="#projects">Проекты</a></li>
+    <li><a href="#about">Обо мне</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="section-label">Портфолио</p>
+  <h1 class="hero-name">Артём <span>Шлома</span></h1>
+  <p class="hero-title">Backend &amp; Mobile разработчик · Java · C# · C++ · Python</p>
+
+  <div class="hero-badges">
+    <span class="badge badge-blue">Java / Spring Boot</span>
+    <span class="badge badge-blue">C# / .NET / ASP.NET Core</span>
+    <span class="badge badge-orange">C++ / STL</span>
+    <span class="badge badge-green">Python</span>
+    <span class="badge badge-purple">Dart / Flutter</span>
+    <span class="badge badge-blue">Kotlin / Android</span>
+    <span class="badge badge-green">Docker · PostgreSQL · Linux</span>
+  </div>
+
+  <div class="achievement-banner">
+    🏆 <span>WorldSkills Russia 2022</span> — победитель · «Разработка мультимедийных приложений» (C#)
+  </div>
+
+  <div class="hero-links">
+    <a href="https://github.com/SHA-inc-unity" class="btn btn-primary" target="_blank" rel="noopener">
+      GitHub
+    </a>
+    <a href="https://t.me/Sharlotta" class="btn btn-outline" target="_blank" rel="noopener">
+      Telegram
+    </a>
+    <a href="mailto:zzz20042013@gmail.com" class="btn btn-outline">
+      Email
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Технологии</p>
+    <h2>Навыки</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h3><span class="skill-icon">☕</span> Java / JVM</h3>
+        <div class="skill-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Kotlin</span>
+          <span class="tag">JVM</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Spring REST</span>
+          <span class="tag">Spring Security</span>
+          <span class="tag">Gradle</span>
+          <span class="tag">Android SDK</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="skill-icon">#</span> C# / .NET</h3>
+        <div class="skill-tags">
+          <span class="tag">C#</span>
+          <span class="tag">.NET</span>
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">Entity Framework Core</span>
+          <span class="tag">REST API</span>
+          <span class="tag">WebSocket</span>
+          <span class="tag">Kafka</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="skill-icon">⚙️</span> C++</h3>
+        <div class="skill-tags">
+          <span class="tag">C++</span>
+          <span class="tag">STL</span>
+          <span class="tag">SOLID</span>
+          <span class="tag">ООП</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="skill-icon">🐍</span> Python</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">ML / DS</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="skill-icon">📱</span> Mobile</h3>
+        <div class="skill-tags">
+          <span class="tag">Dart</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Android</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Android Studio</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3><span class="skill-icon">🛠️</span> Инфраструктура</h3>
+        <div class="skill-tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">Git</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Bash</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Опыт</p>
+    <h2>Проекты</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <a href="https://github.com/FuhFuhOrg/Televibe" class="project-name" target="_blank" rel="noopener">
+            Televibe — Мессенджер (Android)
+          </a>
+        </div>
+        <p class="project-desc">
+          Android-клиент мессенджера с упором на шифрование и взаимодействие с сервером через WebSocket. 
+          Подключил Spring Security для защиты и разделения прав пользователей.
+        </p>
+        <div class="project-stack">
+          <span class="badge badge-blue">Java</span>
+          <span class="badge badge-blue">Spring REST</span>
+          <span class="badge badge-blue">Spring Security</span>
+          <span class="badge badge-blue">WebSocket</span>
+          <span class="badge badge-blue">Android Studio</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" class="project-name" target="_blank" rel="noopener">
+            Televibe — Мессенджер (Flutter)
+          </a>
+        </div>
+        <p class="project-desc">
+          Кроссплатформенный клиент для мессенджера на Dart/Flutter с поддержкой обмена сообщениями 
+          в реальном времени через WebSocket. Работает на Android и iOS.
+        </p>
+        <div class="project-stack">
+          <span class="badge badge-purple">Dart</span>
+          <span class="badge badge-purple">Flutter</span>
+          <span class="badge badge-blue">WebSocket</span>
+          <span class="badge badge-purple">Android / iOS</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <a href="https://github.com/FuhFuhOrg/Televibe_server" class="project-name" target="_blank" rel="noopener">
+            Televibe — Серверная часть (C#)
+          </a>
+        </div>
+        <p class="project-desc">
+          Серверное приложение на C# / .NET с защищёнными REST API, WebSocket-поддержкой 
+          и PostgreSQL через Entity Framework Core. Развёртывание в Docker на Linux.
+        </p>
+        <div class="project-stack">
+          <span class="badge badge-blue">C#</span>
+          <span class="badge badge-blue">.NET</span>
+          <span class="badge badge-blue">ASP.NET Core</span>
+          <span class="badge badge-blue">EF Core</span>
+          <span class="badge badge-green">PostgreSQL</span>
+          <span class="badge badge-green">Docker</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <a href="https://github.com/SHA-unity-inc/TRPP_Main_Project" class="project-name" target="_blank" rel="noopener">
+            TRPP Main Project
+          </a>
+        </div>
+        <p class="project-desc">
+          Командный учебный проект по ТРПП от студентов РТУ МИРЭА. Серверная часть на C#, 
+          клиентская — на Java.
+        </p>
+        <div class="project-stack">
+          <span class="badge badge-blue">Java</span>
+          <span class="badge badge-blue">C#</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" class="project-name" target="_blank" rel="noopener">
+            VKR 2026 — ML ModelBase ⭐
+          </a>
+        </div>
+        <p class="project-desc">
+          Выпускная квалификационная работа: базовая инфраструктура ML-моделей для прогнозирования. 
+          Python, активная разработка.
+        </p>
+        <div class="project-stack">
+          <span class="badge badge-green">Python</span>
+          <span class="badge badge-green">Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <a href="https://github.com/SHA-inc-unity/SoundG" class="project-name" target="_blank" rel="noopener">
+            SoundG ⭐⭐
+          </a>
+        </div>
+        <p class="project-desc">
+          Web-проект, набравший звёзды на GitHub. HTML.
+        </p>
+        <div class="project-stack">
+          <span class="badge badge-orange">HTML</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">О себе</p>
+    <h2>Образование и качества</h2>
+    <div class="about-grid">
+
+      <div class="about-card">
+        <h3>🎓 Образование</h3>
+        <ul>
+          <li>МИРЭА — Российский технологический университет</li>
+          <li>Институт Информационных Технологий</li>
+          <li>Программная инженерия, бакалавриат</li>
+          <li>Выпуск: 2026</li>
+          <li>Английский язык — B1 (Intermediate)</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>🏆 Достижения</h3>
+        <ul>
+          <li>Победитель WorldSkills Russia 2022</li>
+          <li>Категория: «Разработка мультимедийных приложений»</li>
+          <li>Язык соревнования: C#</li>
+          <li>Регулярное участие в хакатонах</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>💡 Подход к работе</h3>
+        <ul>
+          <li>Регулярно решаю задачи на алгоритмы и структуры данных</li>
+          <li>Умею работать как в команде, так и самостоятельно</li>
+          <li>Всегда соблюдаю дедлайны проектов</li>
+          <li>Быстро адаптируюсь к новым технологиям</li>
+          <li>Регулярно прохожу профессиональные курсы</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>📍 Местонахождение</h3>
+        <ul>
+          <li>Москва, Россия</li>
+          <li>21 год</li>
+          <li>Открыт для удалённой и офисной работы</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Связь</p>
+    <h2>Контакты</h2>
+    <div class="contact-grid">
+
+      <a href="tel:+79998113672" class="contact-card">
+        <span class="contact-icon">📞</span>
+        <div>
+          <div class="contact-label">Телефон</div>
+          <div class="contact-value">+7 (999) 811-36-72</div>
+        </div>
+      </a>
+
+      <a href="mailto:zzz20042013@gmail.com" class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">zzz20042013@gmail.com</div>
+        </div>
+      </a>
+
+      <a href="https://t.me/Sharlotta" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon">✈️</span>
+        <div>
+          <div class="contact-label">Telegram</div>
+          <div class="contact-value">@Sharlotta</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/SHA-inc-unity" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon">🐙</span>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">SHA-inc-unity</div>
+        </div>
+      </a>
+
+      <a href="https://itch.io/profile/shainc" class="contact-card" target="_blank" rel="noopener">
+        <span class="contact-icon">🎮</span>
+        <div>
+          <div class="contact-label">itch.io</div>
+          <div class="contact-value">shainc</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Артём Шлома · Москва · 2026</p>
+</footer>
+
+</body>
+</html>
