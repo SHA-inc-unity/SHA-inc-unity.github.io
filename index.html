@@ -268,6 +268,24 @@
     .chip-accent { border-color: var(--accent); color: var(--accent); background: rgba(88,166,255,.08); }
     .chip-muted  { color: var(--muted); }
 
+    /* CHIP GROUPS */
+    .chip-group {
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+    .chip-group + .chip-group {
+      padding-top: .55rem;
+      border-top: 1px solid var(--border);
+    }
+    .chip-group-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     /* CONTACT */
     .contact-grid {
       display: grid;
@@ -329,6 +347,7 @@
     <li><a href="#projects">Проекты</a></li>
     <li><a href="#about">Обо мне</a></li>
     <li><a href="#contact">Контакты</a></li>
+    <li><a href="/resume/" style="color:var(--accent);border:1px solid var(--accent);padding:.2rem .7rem;border-radius:6px;font-size:.82rem;">Резюме</a></li>
   </ul>
 </nav>
 
@@ -543,12 +562,26 @@
 
       <div class="about-card">
         <h3>🎓 Образование</h3>
-        <div class="chips">
-          <span class="chip chip-accent">МИРЭА — РТУ</span>
-          <span class="chip">ИИТ</span>
-          <span class="chip">Программная инженерия</span>
-          <span class="chip">Бакалавриат · 2026</span>
-          <span class="chip">Английский — B2</span>
+        <div class="chip-group">
+          <span class="chip-group-label">Университет</span>
+          <div class="chips">
+            <span class="chip chip-accent">МИРЭА — РТУ</span>
+            <span class="chip">ИИТ</span>
+            <span class="chip">Программная инженерия</span>
+          </div>
+        </div>
+        <div class="chip-group">
+          <span class="chip-group-label">Степень</span>
+          <div class="chips">
+            <span class="chip">Бакалавриат · 2026</span>
+          </div>
+        </div>
+        <div class="chip-group">
+          <span class="chip-group-label">Языки</span>
+          <div class="chips">
+            <span class="chip">Русский — родной</span>
+            <span class="chip">Английский — B2</span>
+          </div>
         </div>
       </div>
 
