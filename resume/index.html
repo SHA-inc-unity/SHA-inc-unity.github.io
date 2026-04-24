@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Резюме — Артём Шлома</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #faf9f7;
+      --ink: #1a1a1a;
+      --muted: #555;
+      --light: #888;
+      --rule: #d0cdc8;
+      --accent: #1a3a6b;
+    }
+
+    html { background: #e8e5e0; }
+
+    body {
+      font-family: 'PT Sans', 'Arial', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.55;
+      background: #e8e5e0;
+      padding: 2.5rem 1rem 4rem;
+    }
+
+    /* Print button */
+    .print-bar {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .print-bar a {
+      font-size: .82rem;
+      color: #666;
+      text-decoration: none;
+    }
+    .print-bar a:hover { text-decoration: underline; }
+    .btn-print {
+      background: #fff;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      padding: .35rem .9rem;
+      font-size: .82rem;
+      cursor: pointer;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .btn-print:hover { background: #f5f5f5; }
+
+    /* PAPER */
+    .paper {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow:
+        0 1px 1px rgba(0,0,0,.06),
+        0 4px 12px rgba(0,0,0,.1),
+        0 16px 40px rgba(0,0,0,.08);
+      padding: 56px 64px 60px;
+    }
+
+    /* HEADER */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 2px solid var(--ink);
+    }
+    .cv-name {
+      font-family: 'PT Serif', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.15;
+      letter-spacing: -.5px;
+    }
+    .cv-role {
+      margin-top: .25rem;
+      font-size: .95rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .cv-contacts {
+      text-align: right;
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.75;
+      flex-shrink: 0;
+    }
+    .cv-contacts a { color: var(--muted); text-decoration: none; }
+    .cv-contacts a:hover { text-decoration: underline; }
+
+    /* SECTION */
+    .cv-section { margin-top: 1.6rem; }
+    .cv-section-title {
+      font-family: 'PT Serif', Georgia, serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: .3rem;
+      margin-bottom: 1.1rem;
+    }
+
+    /* EXPERIENCE ENTRY */
+    .cv-entry { display: flex; gap: 2rem; margin-bottom: 1.3rem; }
+    .cv-entry-date {
+      flex-shrink: 0;
+      width: 90px;
+      font-size: .78rem;
+      color: var(--light);
+      padding-top: .15rem;
+      text-align: right;
+    }
+    .cv-entry-body { flex: 1; }
+    .cv-entry-title {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--ink);
+    }
+    .cv-entry-title a { color: var(--accent); text-decoration: none; }
+    .cv-entry-title a:hover { text-decoration: underline; }
+    .cv-entry-sub {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-top: .1rem;
+      font-style: italic;
+    }
+    .cv-entry-desc {
+      margin-top: .45rem;
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .cv-entry-stack {
+      margin-top: .45rem;
+      font-size: .78rem;
+      color: var(--light);
+    }
+    .cv-entry-stack strong { color: var(--muted); font-weight: 700; }
+
+    /* SKILLS TABLE */
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-table td {
+      padding: .3rem 0;
+      vertical-align: top;
+      font-size: .88rem;
+    }
+    .skills-table td:first-child {
+      width: 140px;
+      font-weight: 700;
+      color: var(--ink);
+      padding-right: 1rem;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .skills-table td:last-child { color: var(--muted); }
+    .skills-table tr { border-bottom: 1px dotted var(--rule); }
+    .skills-table tr:last-child { border-bottom: none; }
+
+    /* ACHIEVEMENT */
+    .cv-achievement {
+      display: flex;
+      align-items: baseline;
+      gap: .7rem;
+      margin-bottom: .6rem;
+      font-size: .88rem;
+    }
+    .cv-achievement-year {
+      flex-shrink: 0;
+      width: 90px;
+      text-align: right;
+      font-size: .78rem;
+      color: var(--light);
+    }
+    .cv-achievement-text { color: var(--muted); }
+    .cv-achievement-text strong { color: var(--ink); }
+
+    /* FOOTER */
+    .cv-footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      font-size: .75rem;
+      color: var(--light);
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* PRINT */
+    @media print {
+      html { background: #fff; }
+      body { background: #fff; padding: 0; }
+      .print-bar { display: none; }
+      .paper {
+        box-shadow: none;
+        padding: 30px 40px 40px;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .paper { padding: 28px 24px 36px; }
+      .cv-header { flex-direction: column; }
+      .cv-contacts { text-align: left; }
+      .cv-entry { flex-direction: column; gap: .2rem; }
+      .cv-entry-date { width: auto; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-bar">
+  <a href="/">← Вернуться на портфолио</a>
+  <button class="btn-print" onclick="window.print()">🖨 Распечатать / PDF</button>
+</div>
+
+<div class="paper">
+
+  <!-- HEADER -->
+  <header class="cv-header">
+    <div>
+      <div class="cv-name">Шлома Артём Леонидович</div>
+      <div class="cv-role">Backend &amp; Mobile разработчик · Java · C# · C++ · Python</div>
+    </div>
+    <div class="cv-contacts">
+      г. Москва, 21 год<br>
+      <a href="tel:+79998113672">+7 (999) 811-36-72</a><br>
+      <a href="mailto:zzz20042013@gmail.com">zzz20042013@gmail.com</a><br>
+      <a href="https://t.me/Sharlotta" target="_blank">t.me/Sharlotta</a><br>
+      <a href="https://github.com/SHA-inc-unity" target="_blank">github.com/SHA-inc-unity</a>
+    </div>
+  </header>
+
+  <!-- EDUCATION -->
+  <section class="cv-section">
+    <div class="cv-section-title">Образование</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2022 — 2026</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">МИРЭА — Российский технологический университет</div>
+        <div class="cv-entry-sub">Институт Информационных Технологий · Программная инженерия · Бакалавриат</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="cv-section">
+    <div class="cv-section-title">Технические навыки</div>
+    <table class="skills-table">
+      <tr>
+        <td>Java / JVM</td>
+        <td>Java, Kotlin, Spring Boot, Spring REST, Spring Security, Android SDK, Gradle</td>
+      </tr>
+      <tr>
+        <td>C# / .NET</td>
+        <td>C#, .NET, ASP.NET Core, Entity Framework Core, REST API, WebSocket, Kafka</td>
+      </tr>
+      <tr>
+        <td>C++</td>
+        <td>C++, STL, SOLID, ООП</td>
+      </tr>
+      <tr>
+        <td>Python</td>
+        <td>Python, ML / DS</td>
+      </tr>
+      <tr>
+        <td>Mobile</td>
+        <td>Dart, Flutter, Android, iOS, Android Studio</td>
+      </tr>
+      <tr>
+        <td>Инфраструктура</td>
+        <td>PostgreSQL, Docker, Docker Compose, Git, Linux, Bash</td>
+      </tr>
+      <tr>
+        <td>Языки</td>
+        <td>Русский — родной · Английский — B1 (Intermediate)</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="cv-section">
+    <div class="cv-section-title">Опыт разработки</div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024 — 2025</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">
+          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank">Televibe — Серверная часть (C#)</a>
+        </div>
+        <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
+        <div class="cv-entry-desc">
+          Разработал серверное приложение на C#/.NET с использованием ASP.NET Core. Создал защищённые REST API и реализовал поддержку WebSocket. Подключил базу данных PostgreSQL через Entity Framework Core. Настроил развёртывание приложения в контейнерах Docker на Linux.
+        </div>
+        <div class="cv-entry-stack">
+          <strong>Стек:</strong> C#, .NET, ASP.NET Core, Entity Framework Core, REST API, WebSocket, PostgreSQL, Docker, Linux
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024 — 2025</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">
+          <a href="https://github.com/FuhFuhOrg/Televibe" target="_blank">Televibe — Android-клиент (Java)</a>
+        </div>
+        <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
+        <div class="cv-entry-desc">
+          Создал Android-приложение с упором на шифрование и взаимодействие с сервером через WebSocket. Добавил Spring Security для защиты и разделения прав пользователей. Подключил Android-клиент к серверной части.
+        </div>
+        <div class="cv-entry-stack">
+          <strong>Стек:</strong> Java, Spring REST, Spring Security, WebSocket, Android Studio
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024 — 2025</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">
+          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank">Televibe — Кроссплатформенный клиент (Dart / Flutter)</a>
+        </div>
+        <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
+        <div class="cv-entry-desc">
+          Разработал кроссплатформенный клиент на Dart/Flutter с поддержкой обмена сообщениями в реальном времени через WebSocket. Реализовал современный интерфейс для Android и iOS.
+        </div>
+        <div class="cv-entry-stack">
+          <strong>Стек:</strong> Dart, Flutter, WebSocket, Android, iOS
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">
+          <a href="https://github.com/SHA-unity-inc/TRPP_Main_Project" target="_blank">TRPP Main Project</a>
+        </div>
+        <div class="cv-entry-sub">SHA-unity-inc · Учебный командный проект (РТУ МИРЭА)</div>
+        <div class="cv-entry-desc">
+          Командный проект по курсу «Технология разработки программных продуктов». Серверная часть на C#, клиент на Java.
+        </div>
+        <div class="cv-entry-stack">
+          <strong>Стек:</strong> Java, C#
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2025 — н.в.</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">
+          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" target="_blank">VKR 2026 — ML ModelBase</a>
+        </div>
+        <div class="cv-entry-sub">Выпускная квалификационная работа</div>
+        <div class="cv-entry-desc">
+          Инфраструктура ML-моделей для прогнозирования временных рядов. Активная разработка.
+        </div>
+        <div class="cv-entry-stack">
+          <strong>Стек:</strong> Python, Machine Learning
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="cv-section">
+    <div class="cv-section-title">Достижения</div>
+
+    <div class="cv-achievement">
+      <div class="cv-achievement-year">2022</div>
+      <div class="cv-achievement-text">
+        <strong>Победитель WorldSkills Russia 2022</strong> — категория «Разработка мультимедийных приложений» (язык: C#)
+      </div>
+    </div>
+
+    <div class="cv-achievement">
+      <div class="cv-achievement-year">2022 — н.в.</div>
+      <div class="cv-achievement-text">
+        Регулярное участие в хакатонах и профессиональных курсах
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="cv-section">
+    <div class="cv-section-title">О себе</div>
+    <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">
+      Регулярно решаю задачи на алгоритмы и структуры данных. Умею работать как в команде, так и самостоятельно. Всегда соблюдаю дедлайны и быстро адаптируюсь к новым технологиям.
+    </p>
+  </section>
+
+  <div class="cv-footer">
+    Актуально на апрель 2026 · shainc.me/resume
+  </div>
+
+</div>
+
+</body>
+</html>
