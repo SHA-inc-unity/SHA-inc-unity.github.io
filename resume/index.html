@@ -24,7 +24,7 @@
       font-family: 'PT Sans', 'Arial', sans-serif;
       font-size: 14px;
       color: var(--ink);
-      line-height: 1.55;
+      line-height: 1.42;
       background: #e8e5e0;
       padding: 2.5rem 1rem 4rem;
     }
@@ -36,6 +36,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
     .print-bar a {
       font-size: .82rem;
@@ -43,6 +44,11 @@
       text-decoration: none;
     }
     .print-bar a:hover { text-decoration: underline; }
+    .print-actions {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
     .btn-print {
       background: #fff;
       border: 1px solid #bbb;
@@ -56,12 +62,26 @@
       gap: .4rem;
     }
     .btn-print:hover { background: #f5f5f5; }
+    .btn-download {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn-download:hover { background: #24497f; }
+    .print-note {
+      max-width: 760px;
+      margin: 0 auto 1.1rem;
+      font-size: .76rem;
+      color: var(--light);
+      text-align: right;
+    }
 
     /* PAPER */
     .paper {
       max-width: 760px;
       margin: 0 auto;
       background: var(--paper);
+      line-height: 1.42;
       box-shadow:
         0 1px 1px rgba(0,0,0,.06),
         0 4px 12px rgba(0,0,0,.1),
@@ -96,11 +116,59 @@
       text-align: right;
       font-size: .82rem;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.55;
       flex-shrink: 0;
     }
     .cv-contacts a { color: var(--muted); text-decoration: none; }
     .cv-contacts a:hover { text-decoration: underline; }
+    .cv-intro {
+      margin-top: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.35fr .95fr;
+      gap: 2rem;
+    }
+    .cv-summary-title,
+    .cv-facts-title {
+      font-family: 'PT Serif', Georgia, serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .7rem;
+    }
+    .cv-summary-text {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .cv-facts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .65rem;
+    }
+    .cv-fact {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: .8rem;
+      align-items: baseline;
+      padding-bottom: .35rem;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .cv-fact:last-child { border-bottom: none; padding-bottom: 0; }
+    .cv-fact-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .cv-fact-value {
+      font-size: .85rem;
+      color: var(--ink);
+    }
 
     /* SECTION */
     .cv-section { margin-top: 1.6rem; }
@@ -114,6 +182,8 @@
       border-bottom: 1px solid var(--rule);
       padding-bottom: .3rem;
       margin-bottom: 1.1rem;
+      break-after: avoid;
+      page-break-after: avoid;
     }
 
     /* EXPERIENCE ENTRY */
@@ -131,6 +201,7 @@
       font-weight: 700;
       font-size: .95rem;
       color: var(--ink);
+      line-height: 1.28;
     }
     .cv-entry-title a { color: var(--accent); text-decoration: none; }
     .cv-entry-title a:hover { text-decoration: underline; }
@@ -139,12 +210,13 @@
       color: var(--muted);
       margin-top: .1rem;
       font-style: italic;
+      line-height: 1.32;
     }
     .cv-entry-desc {
       margin-top: .45rem;
       font-size: .88rem;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.46;
     }
     .cv-entry-stack {
       margin-top: .45rem;
@@ -152,6 +224,19 @@
       color: var(--light);
     }
     .cv-entry-stack strong { color: var(--muted); font-weight: 700; }
+    .cv-entry-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .9rem;
+      margin-top: .35rem;
+    }
+    .cv-entry-links a {
+      font-size: .8rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,58,107,.25);
+    }
+    .cv-entry-links a:hover { text-decoration: underline; }
 
     /* SKILLS TABLE */
     .skills-table { width: 100%; border-collapse: collapse; }
@@ -191,6 +276,47 @@
     .cv-achievement-text { color: var(--muted); }
     .cv-achievement-text strong { color: var(--ink); }
 
+    /* LINKS */
+    .cv-link-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cv-link-group {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .cv-link-group-label {
+      font-size: .78rem;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+      padding-top: .15rem;
+    }
+    .cv-link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem .7rem;
+    }
+    .cv-link-pill {
+      display: inline-block;
+      padding: .32rem .72rem;
+      border: 1px solid var(--rule);
+      background: rgba(255,255,255,.45);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .82rem;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+    .cv-link-pill:hover {
+      border-color: var(--accent);
+      background: rgba(26,58,107,.04);
+    }
+
     /* FOOTER */
     .cv-footer {
       margin-top: 2rem;
@@ -200,6 +326,94 @@
       color: var(--light);
       text-align: center;
       font-style: italic;
+    }
+
+    .cv-header,
+    .cv-intro,
+    .cv-entry,
+    .cv-achievement,
+    .cv-link-group,
+    .cv-fact,
+    .skills-table tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    body.pdf-export {
+      line-height: 1.34;
+    }
+    body.pdf-export .paper {
+      box-shadow: none;
+      line-height: 1.34;
+      padding: 40px 44px 42px;
+    }
+    body.pdf-export .cv-header {
+      gap: 1.25rem;
+      padding-bottom: .95rem;
+    }
+    body.pdf-export .cv-contacts {
+      line-height: 1.32;
+    }
+    body.pdf-export .cv-intro {
+      margin-top: .85rem;
+      padding-bottom: .8rem;
+      gap: 1.2rem;
+    }
+    body.pdf-export .cv-summary-text {
+      line-height: 1.38;
+    }
+    body.pdf-export .cv-facts {
+      gap: .42rem;
+    }
+    body.pdf-export .cv-fact {
+      padding-bottom: .2rem;
+    }
+    body.pdf-export .cv-section {
+      margin-top: 1rem;
+    }
+    body.pdf-export .cv-section-title {
+      margin-bottom: .7rem;
+    }
+    body.pdf-export .cv-entry {
+      display: block;
+      margin-bottom: .75rem;
+    }
+    body.pdf-export .cv-entry-date {
+      width: auto;
+      text-align: left;
+      padding-top: 0;
+      margin-bottom: .18rem;
+    }
+    body.pdf-export .cv-entry-sub {
+      margin-top: .05rem;
+    }
+    body.pdf-export .cv-entry-links {
+      gap: .35rem .7rem;
+      margin-top: .18rem;
+    }
+    body.pdf-export .cv-entry-desc {
+      margin-top: .24rem;
+      line-height: 1.32;
+    }
+    body.pdf-export .cv-entry-stack {
+      margin-top: .24rem;
+    }
+    body.pdf-export .skills-table td {
+      padding: .2rem 0;
+    }
+    body.pdf-export .cv-achievement {
+      margin-bottom: .35rem;
+    }
+    body.pdf-export .cv-link-groups {
+      gap: .75rem;
+    }
+    body.pdf-export .cv-link-pill {
+      padding: .26rem .58rem;
+      font-size: .78rem;
+    }
+    body.pdf-export .cv-footer {
+      margin-top: 1rem;
+      padding-top: .6rem;
     }
 
     /* PRINT */
@@ -215,9 +429,30 @@
     }
 
     @media (max-width: 600px) {
+      .print-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .print-note { text-align: left; }
+      .print-actions {
+        justify-content: stretch;
+        flex-direction: column;
+      }
+      .btn-print {
+        width: 100%;
+        justify-content: center;
+      }
       .paper { padding: 28px 24px 36px; }
       .cv-header { flex-direction: column; }
       .cv-contacts { text-align: left; }
+      .cv-intro { grid-template-columns: 1fr; gap: 1rem; }
+      .cv-fact,
+      .cv-link-group {
+        grid-template-columns: 1fr;
+      }
+      .cv-link-list {
+        gap: .45rem .55rem;
+      }
       .cv-entry { flex-direction: column; gap: .2rem; }
       .cv-entry-date { width: auto; text-align: left; }
     }
@@ -227,8 +462,13 @@
 
 <div class="print-bar">
   <a href="/">← Вернуться на портфолио</a>
-  <button class="btn-print" onclick="window.print()">🖨 Распечатать / PDF</button>
+  <div class="print-actions">
+    <button class="btn-print btn-download" id="download-pdf" type="button">⬇ Скачать PDF</button>
+    <button class="btn-print" id="print-resume" type="button">🖨 Печать</button>
+  </div>
 </div>
+
+<div class="print-note">PDF собирается из текущей HTML-версии резюме.</div>
 
 <div class="paper">
 
@@ -239,13 +479,39 @@
       <div class="cv-role">Backend &amp; Mobile разработчик · Java · C# · C++ · Python</div>
     </div>
     <div class="cv-contacts">
-      г. Москва, 21 год<br>
+      г. Москва, <span id="resume-age"></span><br>
       <a href="tel:+79998113672">+7 (999) 811-36-72</a><br>
       <a href="mailto:zzz20042013@gmail.com">zzz20042013@gmail.com</a><br>
-      <a href="https://t.me/Sharlotta" target="_blank">t.me/Sharlotta</a><br>
-      <a href="https://github.com/SHA-inc-unity" target="_blank">github.com/SHA-inc-unity</a>
+      <a href="https://t.me/Sharlotta" target="_blank" rel="noopener">t.me/Sharlotta</a><br>
+      <a href="https://github.com/SHA-inc-unity" target="_blank" rel="noopener">github.com/SHA-inc-unity</a>
     </div>
   </header>
+
+  <section class="cv-intro">
+    <div>
+      <div class="cv-summary-title">Профиль</div>
+      <p class="cv-summary-text">
+        Бэкенд, фронтенд и прикладной стек: Java, C#, Python, Flutter, PostgreSQL, Docker, WebSocket.
+      </p>
+    </div>
+    <div>
+      <div class="cv-facts-title">Ключевые факты</div>
+      <div class="cv-facts">
+        <div class="cv-fact">
+          <div class="cv-fact-label">Формат</div>
+          <div class="cv-fact-value">Удалённо / офис / проектная работа</div>
+        </div>
+        <div class="cv-fact">
+          <div class="cv-fact-label">Фокус</div>
+          <div class="cv-fact-value">Backend, интеграции, мобильные клиенты, ML-проекты</div>
+        </div>
+        <div class="cv-fact">
+          <div class="cv-fact-label">Английский</div>
+          <div class="cv-fact-value">B2</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- EDUCATION -->
   <section class="cv-section">
@@ -290,7 +556,7 @@
       </tr>
       <tr>
         <td>Языки</td>
-        <td>Русский — родной · Английский — B1 (Intermediate)</td>
+        <td>Русский — родной · Английский — B2</td>
       </tr>
     </table>
   </section>
@@ -303,46 +569,18 @@
       <div class="cv-entry-date">2024 — 2025</div>
       <div class="cv-entry-body">
         <div class="cv-entry-title">
-          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank">Televibe — Серверная часть (C#)</a>
+          Televibe
         </div>
         <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
+        <div class="cv-entry-links">
+          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank" rel="noopener">Flutter-клиент</a>
+          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank" rel="noopener">Серверный репозиторий</a>
+        </div>
         <div class="cv-entry-desc">
-          Разработал серверное приложение на C#/.NET с использованием ASP.NET Core. Создал защищённые REST API и реализовал поддержку WebSocket. Подключил базу данных PostgreSQL через Entity Framework Core. Настроил развёртывание приложения в контейнерах Docker на Linux.
+          Я использовал Dart и Flutter для разработки мобильного клиента, WebSocket для обмена сообщениями в реальном времени, PostgreSQL и Npgsql для хранения данных, а RSA/AES для защиты передаваемой информации.
         </div>
         <div class="cv-entry-stack">
-          <strong>Стек:</strong> C#, .NET, ASP.NET Core, Entity Framework Core, REST API, WebSocket, PostgreSQL, Docker, Linux
-        </div>
-      </div>
-    </div>
-
-    <div class="cv-entry">
-      <div class="cv-entry-date">2024 — 2025</div>
-      <div class="cv-entry-body">
-        <div class="cv-entry-title">
-          <a href="https://github.com/FuhFuhOrg/Televibe" target="_blank">Televibe — Android-клиент (Java)</a>
-        </div>
-        <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
-        <div class="cv-entry-desc">
-          Создал Android-приложение с упором на шифрование и взаимодействие с сервером через WebSocket. Добавил Spring Security для защиты и разделения прав пользователей. Подключил Android-клиент к серверной части.
-        </div>
-        <div class="cv-entry-stack">
-          <strong>Стек:</strong> Java, Spring REST, Spring Security, WebSocket, Android Studio
-        </div>
-      </div>
-    </div>
-
-    <div class="cv-entry">
-      <div class="cv-entry-date">2024 — 2025</div>
-      <div class="cv-entry-body">
-        <div class="cv-entry-title">
-          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank">Televibe — Кроссплатформенный клиент (Dart / Flutter)</a>
-        </div>
-        <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
-        <div class="cv-entry-desc">
-          Разработал кроссплатформенный клиент на Dart/Flutter с поддержкой обмена сообщениями в реальном времени через WebSocket. Реализовал современный интерфейс для Android и iOS.
-        </div>
-        <div class="cv-entry-stack">
-          <strong>Стек:</strong> Dart, Flutter, WebSocket, Android, iOS
+          <strong>Стек:</strong> Dart, Flutter, Java, WebSocket, C#/.NET, Python, PostgreSQL, Npgsql, RSA/AES
         </div>
       </div>
     </div>
@@ -351,14 +589,14 @@
       <div class="cv-entry-date">2024</div>
       <div class="cv-entry-body">
         <div class="cv-entry-title">
-          <a href="https://github.com/SHA-unity-inc/TRPP_Main_Project" target="_blank">TRPP Main Project</a>
+          <a href="https://github.com/SHA-unity-inc/TRPP_Main_Project" target="_blank" rel="noopener">TRPP Main Project</a>
         </div>
         <div class="cv-entry-sub">SHA-unity-inc · Учебный командный проект (РТУ МИРЭА)</div>
         <div class="cv-entry-desc">
-          Командный проект по курсу «Технология разработки программных продуктов». Серверная часть на C#, клиент на Java.
+          Я использовал Java и Android SDK для разработки мобильного клиента, AndroidX Fragment для построения экранов, а OkHttp и Java Android WebSocket Client для сетевого взаимодействия приложения.
         </div>
         <div class="cv-entry-stack">
-          <strong>Стек:</strong> Java, C#
+          <strong>Стек:</strong> Java, Android SDK, AndroidX Fragment, Gradle Kotlin DSL, OkHttp, Java Android WebSocket Client
         </div>
       </div>
     </div>
@@ -367,14 +605,14 @@
       <div class="cv-entry-date">2025 — н.в.</div>
       <div class="cv-entry-body">
         <div class="cv-entry-title">
-          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" target="_blank">VKR 2026 — ML ModelBase</a>
+          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" target="_blank" rel="noopener">VKR 2026 — ML ModelBase</a>
         </div>
         <div class="cv-entry-sub">Выпускная квалификационная работа</div>
         <div class="cv-entry-desc">
-          Инфраструктура ML-моделей для прогнозирования временных рядов. Активная разработка.
+          Я использовал Python 3.12, FastAPI и CatBoost для аналитического ML-сервиса, .NET 8 и ASP.NET Core для сервисов аккаунтов и gateway, PostgreSQL/Redis для хранения и кэша, Docker и скрипты PowerShell/Shell для запуска сервисов.
         </div>
         <div class="cv-entry-stack">
-          <strong>Стек:</strong> Python, Machine Learning
+          <strong>Стек:</strong> Python 3.12, FastAPI, CatBoost, .NET 8, ASP.NET Core, PostgreSQL, Redis, Docker, PowerShell, Shell
         </div>
       </div>
     </div>
@@ -392,10 +630,27 @@
       </div>
     </div>
 
-    <div class="cv-achievement">
-      <div class="cv-achievement-year">2022 — н.в.</div>
-      <div class="cv-achievement-text">
-        Регулярное участие в хакатонах и профессиональных курсах
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Дополнительные ссылки</div>
+    <div class="cv-link-groups">
+      <div class="cv-link-group">
+        <div class="cv-link-group-label">Репозитории</div>
+        <div class="cv-link-list">
+          <a class="cv-link-pill" href="https://github.com/FuhFuhOrg/Televibe" target="_blank" rel="noopener">Televibe</a>
+          <a class="cv-link-pill" href="https://github.com/SHA-unity-inc/TRPP_Main_Project" target="_blank" rel="noopener">TRPP</a>
+          <a class="cv-link-pill" href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" target="_blank" rel="noopener">ModelBase</a>
+        </div>
+      </div>
+      <div class="cv-link-group">
+        <div class="cv-link-group-label">GitHub</div>
+        <div class="cv-link-list">
+          <a class="cv-link-pill" href="https://github.com/SHA-inc-unity" target="_blank" rel="noopener">SHA</a>
+          <a class="cv-link-pill" href="https://github.com/VSJ-dev" target="_blank" rel="noopener">VSJ-dev</a>
+          <a class="cv-link-pill" href="https://github.com/SHA-unity-inc" target="_blank" rel="noopener">SHA-unity-inc</a>
+          <a class="cv-link-pill" href="https://github.com/FuhFuhich" target="_blank" rel="noopener">FuhFuh</a>
+        </div>
       </div>
     </div>
   </section>
@@ -409,10 +664,137 @@
   </section>
 
   <div class="cv-footer">
-    Актуально на апрель 2026 · shainc.me/resume
+    shainc.me/resume
   </div>
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  (function() {
+    function getAgeLabel(age) {
+      var remainder10 = age % 10;
+      var remainder100 = age % 100;
+
+      if (remainder100 >= 11 && remainder100 <= 14) {
+        return age + ' лет';
+      }
+      if (remainder10 === 1) {
+        return age + ' год';
+      }
+      if (remainder10 >= 2 && remainder10 <= 4) {
+        return age + ' года';
+      }
+      return age + ' лет';
+    }
+
+    function updateAge() {
+      var birth = new Date(2004, 8, 8);
+      var now = new Date();
+      var age = now.getFullYear() - birth.getFullYear();
+      var monthDelta = now.getMonth() - birth.getMonth();
+
+      if (monthDelta < 0 || (monthDelta === 0 && now.getDate() < birth.getDate())) {
+        age--;
+      }
+
+      var ageNode = document.getElementById('resume-age');
+      if (ageNode) {
+        ageNode.textContent = getAgeLabel(age);
+      }
+    }
+
+    async function exportResumePdf(isAutoMode) {
+      var button = document.getElementById('download-pdf');
+      var originalText = button ? button.textContent : '';
+
+      document.body.classList.add('pdf-export');
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Собираю PDF...';
+      }
+
+      try {
+        if (!window.html2pdf) {
+          throw new Error('html2pdf is unavailable');
+        }
+
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+
+        await new Promise(function(resolve) {
+          requestAnimationFrame(function() {
+            requestAnimationFrame(resolve);
+          });
+        });
+
+        await window.html2pdf()
+          .set({
+            margin: [20, 18, 20, 18],
+            filename: 'Artem_Shloma_Resume.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: {
+              scale: 2,
+              useCORS: true,
+              backgroundColor: '#faf9f7'
+            },
+            pagebreak: {
+              mode: ['css', 'legacy'],
+              avoid: ['.cv-header', '.cv-intro', '.cv-entry', '.cv-entry-body', '.cv-achievement', '.cv-link-group', '.cv-fact', '.skills-table tr']
+            },
+            jsPDF: {
+              unit: 'pt',
+              format: 'a4',
+              orientation: 'portrait'
+            }
+          })
+          .from(document.querySelector('.paper'))
+          .save();
+
+        if (isAutoMode && window.history && window.history.replaceState) {
+          window.history.replaceState({}, document.title, '/resume/');
+        }
+      } catch (error) {
+        console.error(error);
+        if (!isAutoMode) {
+          window.alert('Не удалось собрать PDF. Попробуй обновить страницу и повторить.');
+        }
+      } finally {
+        document.body.classList.remove('pdf-export');
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+      }
+    }
+
+    function setupActions() {
+      var downloadButton = document.getElementById('download-pdf');
+      var printButton = document.getElementById('print-resume');
+
+      if (downloadButton) {
+        downloadButton.addEventListener('click', function() {
+          exportResumePdf(false);
+        });
+      }
+
+      if (printButton) {
+        printButton.addEventListener('click', function() {
+          window.print();
+        });
+      }
+
+      var searchParams = new URLSearchParams(window.location.search);
+      if (searchParams.get('download') === '1') {
+        exportResumePdf(true);
+      }
+    }
+
+    updateAge();
+    setupActions();
+  })();
+</script>
 </body>
 </html>
