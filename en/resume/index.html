@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Резюме — Артём Шлома</title>
+  <title>Resume - Artem Shloma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://ipapi.co" crossorigin />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap');
@@ -30,7 +32,6 @@
       padding: 2.5rem 1rem 4rem;
     }
 
-    /* Print button */
     .print-bar {
       max-width: 760px;
       margin: 0 auto 1rem;
@@ -63,6 +64,7 @@
       display: flex;
       align-items: center;
       gap: .4rem;
+      text-decoration: none;
     }
     .btn-print:hover { background: #f5f5f5; }
     .btn-download {
@@ -95,7 +97,6 @@
       text-align: right;
     }
 
-    /* PAPER */
     .paper {
       max-width: 760px;
       margin: 0 auto;
@@ -108,7 +109,6 @@
       padding: 56px 64px 60px;
     }
 
-    /* HEADER */
     .cv-header {
       display: flex;
       justify-content: space-between;
@@ -189,7 +189,6 @@
       color: var(--ink);
     }
 
-    /* SECTION */
     .cv-section { margin-top: 1.6rem; }
     .cv-section-title {
       font-family: 'PT Serif', Georgia, serif;
@@ -205,7 +204,6 @@
       page-break-after: avoid;
     }
 
-    /* EXPERIENCE ENTRY */
     .cv-entry { display: flex; gap: 2rem; margin-bottom: 1.3rem; }
     .cv-entry-date {
       flex-shrink: 0;
@@ -257,7 +255,6 @@
     }
     .cv-entry-links a:hover { text-decoration: underline; }
 
-    /* SKILLS TABLE */
     .skills-table { width: 100%; border-collapse: collapse; }
     .skills-table td {
       padding: .3rem 0;
@@ -277,7 +274,6 @@
     .skills-table tr { border-bottom: 1px dotted var(--rule); }
     .skills-table tr:last-child { border-bottom: none; }
 
-    /* ACHIEVEMENT */
     .cv-achievement {
       display: flex;
       align-items: baseline;
@@ -295,7 +291,6 @@
     .cv-achievement-text { color: var(--muted); }
     .cv-achievement-text strong { color: var(--ink); }
 
-    /* LINKS */
     .cv-link-groups {
       display: flex;
       flex-direction: column;
@@ -336,7 +331,6 @@
       background: rgba(26,58,107,.04);
     }
 
-    /* FOOTER */
     .cv-footer {
       margin-top: 2rem;
       padding-top: 1rem;
@@ -435,7 +429,6 @@
       padding-top: .6rem;
     }
 
-    /* PRINT */
     @media print {
       html { background: #fff; }
       body { background: #fff; padding: 0; }
@@ -480,10 +473,10 @@
 <body>
 
 <div class="print-bar">
-  <a href="/">← Вернуться на портфолио</a>
+  <a href="/en/">&larr; Back to portfolio</a>
   <div class="print-actions">
-    <button class="btn-print btn-download" id="download-pdf" type="button">⬇ Скачать PDF</button>
-    <button class="btn-print" id="print-resume" type="button">🖨 Печать</button>
+    <button class="btn-print btn-download" id="download-pdf" type="button">⬇ Download PDF</button>
+    <button class="btn-print" id="print-resume" type="button">🖨 Print</button>
     <div class="locale-switcher">
       <a href="/resume/" class="btn-print locale-link" data-lang-switch="ru">RU</a>
       <a href="/en/resume/" class="btn-print locale-link" data-lang-switch="en">EN</a>
@@ -491,18 +484,16 @@
   </div>
 </div>
 
-<div class="print-note">PDF собирается из текущей HTML-версии резюме.</div>
+<div class="print-note">PDF is generated from the current HTML version of the resume.</div>
 
 <div class="paper">
-
-  <!-- HEADER -->
   <header class="cv-header">
     <div>
-      <div class="cv-name">Шлома Артём Леонидович</div>
-      <div class="cv-role">Backend &amp; Mobile разработчик · Java · C# · C++ · Python</div>
+      <div class="cv-name">Artem Leonidovich Shloma</div>
+      <div class="cv-role">Backend &amp; Mobile Developer · Java · C# · C++ · Python</div>
     </div>
     <div class="cv-contacts">
-      г. Москва, <span id="resume-age"></span><br>
+      Moscow, <span id="resume-age"></span><br>
       <a href="tel:+79998113672">+7 (999) 811-36-72</a><br>
       <a href="mailto:zzz20042013@gmail.com">zzz20042013@gmail.com</a><br>
       <a href="https://t.me/Sharlotta" target="_blank" rel="noopener">t.me/Sharlotta</a><br>
@@ -512,46 +503,44 @@
 
   <section class="cv-intro">
     <div>
-      <div class="cv-summary-title">Профиль</div>
+      <div class="cv-summary-title">Profile</div>
       <p class="cv-summary-text">
-        Бэкенд, фронтенд и прикладной стек: Java, C#, Python, Flutter, PostgreSQL, Docker, WebSocket.
+        Backend, frontend, and applied stack: Java, C#, Python, Flutter, PostgreSQL, Docker, WebSocket.
       </p>
     </div>
     <div>
-      <div class="cv-facts-title">Ключевые факты</div>
+      <div class="cv-facts-title">Key facts</div>
       <div class="cv-facts">
         <div class="cv-fact">
-          <div class="cv-fact-label">Формат</div>
-          <div class="cv-fact-value">Удалённо / офис / проектная работа</div>
+          <div class="cv-fact-label">Format</div>
+          <div class="cv-fact-value">Remote / office / project-based work</div>
         </div>
         <div class="cv-fact">
-          <div class="cv-fact-label">Фокус</div>
-          <div class="cv-fact-value">Backend, интеграции, мобильные клиенты, ML-проекты</div>
+          <div class="cv-fact-label">Focus</div>
+          <div class="cv-fact-value">Backend, integrations, mobile clients, ML projects</div>
         </div>
         <div class="cv-fact">
-          <div class="cv-fact-label">Английский</div>
+          <div class="cv-fact-label">English</div>
           <div class="cv-fact-value">B2</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION -->
   <section class="cv-section">
-    <div class="cv-section-title">Образование</div>
+    <div class="cv-section-title">Education</div>
 
     <div class="cv-entry">
-      <div class="cv-entry-date">2022 — 2026</div>
+      <div class="cv-entry-date">2022 - 2026</div>
       <div class="cv-entry-body">
-        <div class="cv-entry-title">МИРЭА — Российский технологический университет</div>
-        <div class="cv-entry-sub">Институт Информационных Технологий · Программная инженерия · Бакалавриат</div>
+        <div class="cv-entry-title">MIREA - Russian Technological University</div>
+        <div class="cv-entry-sub">Institute of Information Technologies · Software Engineering · Bachelor's degree</div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section class="cv-section">
-    <div class="cv-section-title">Технические навыки</div>
+    <div class="cv-section-title">Technical skills</div>
     <table class="skills-table">
       <tr>
         <td>Java / JVM</td>
@@ -563,7 +552,7 @@
       </tr>
       <tr>
         <td>C++</td>
-        <td>C++, STL, SOLID, ООП</td>
+        <td>C++, STL, SOLID, OOP</td>
       </tr>
       <tr>
         <td>Python</td>
@@ -574,36 +563,33 @@
         <td>Dart, Flutter, Android, iOS, Android Studio</td>
       </tr>
       <tr>
-        <td>Инфраструктура</td>
+        <td>Infrastructure</td>
         <td>PostgreSQL, Docker, Docker Compose, Git, Linux, Bash</td>
       </tr>
       <tr>
-        <td>Языки</td>
-        <td>Русский — родной · Английский — B2</td>
+        <td>Languages</td>
+        <td>Russian - native · English - B2</td>
       </tr>
     </table>
   </section>
 
-  <!-- EXPERIENCE -->
   <section class="cv-section">
-    <div class="cv-section-title">Опыт разработки</div>
+    <div class="cv-section-title">Development experience</div>
 
     <div class="cv-entry">
-      <div class="cv-entry-date">2024 — 2025</div>
+      <div class="cv-entry-date">2024 - 2025</div>
       <div class="cv-entry-body">
-        <div class="cv-entry-title">
-          Televibe
-        </div>
-        <div class="cv-entry-sub">FuhFuhOrg · Командный проект</div>
+        <div class="cv-entry-title">Televibe</div>
+        <div class="cv-entry-sub">FuhFuhOrg · Team project</div>
         <div class="cv-entry-links">
-          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank" rel="noopener">Flutter-клиент</a>
-          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank" rel="noopener">Серверный репозиторий</a>
+          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank" rel="noopener">Flutter client</a>
+          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank" rel="noopener">Server repository</a>
         </div>
         <div class="cv-entry-desc">
-          Я использовал Dart и Flutter для разработки мобильного клиента, WebSocket для обмена сообщениями в реальном времени, PostgreSQL и Npgsql для хранения данных, а RSA/AES для защиты передаваемой информации.
+          Used Dart and Flutter for the mobile client, WebSocket for real-time messaging, PostgreSQL and Npgsql for data storage, and RSA/AES to secure transferred data.
         </div>
         <div class="cv-entry-stack">
-          <strong>Стек:</strong> Dart, Flutter, Java, WebSocket, C#/.NET, Python, PostgreSQL, Npgsql, RSA/AES
+          <strong>Stack:</strong> Dart, Flutter, Java, WebSocket, C#/.NET, Python, PostgreSQL, Npgsql, RSA/AES
         </div>
       </div>
     </div>
@@ -614,52 +600,49 @@
         <div class="cv-entry-title">
           <a href="https://github.com/SHA-unity-inc/TRPP_Main_Project" target="_blank" rel="noopener">TRPP Main Project</a>
         </div>
-        <div class="cv-entry-sub">SHA-unity-inc · Учебный командный проект (РТУ МИРЭА)</div>
+        <div class="cv-entry-sub">SHA-unity-inc · Academic team project (RTU MIREA)</div>
         <div class="cv-entry-desc">
-          Я использовал Java и Android SDK для разработки мобильного клиента, AndroidX Fragment для построения экранов, а OkHttp и Java Android WebSocket Client для сетевого взаимодействия приложения.
+          Used Java and the Android SDK to build the mobile client, AndroidX Fragment for screen composition, and OkHttp with Java Android WebSocket Client for networking.
         </div>
         <div class="cv-entry-stack">
-          <strong>Стек:</strong> Java, Android SDK, AndroidX Fragment, Gradle Kotlin DSL, OkHttp, Java Android WebSocket Client
+          <strong>Stack:</strong> Java, Android SDK, AndroidX Fragment, Gradle Kotlin DSL, OkHttp, Java Android WebSocket Client
         </div>
       </div>
     </div>
 
     <div class="cv-entry">
-      <div class="cv-entry-date">2025 — н.в.</div>
+      <div class="cv-entry-date">2025 - present</div>
       <div class="cv-entry-body">
         <div class="cv-entry-title">
-          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" target="_blank" rel="noopener">VKR 2026 — ML ModelBase</a>
+          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" target="_blank" rel="noopener">VKR 2026 - ML ModelBase</a>
         </div>
-        <div class="cv-entry-sub">Выпускная квалификационная работа</div>
+        <div class="cv-entry-sub">Bachelor thesis project</div>
         <div class="cv-entry-desc">
-          Я использовал Python 3.12, FastAPI и CatBoost для аналитического ML-сервиса, .NET 8 и ASP.NET Core для сервисов аккаунтов и gateway, PostgreSQL/Redis для хранения и кэша, Docker и скрипты PowerShell/Shell для запуска сервисов.
+          Used Python 3.12, FastAPI, and CatBoost for the ML analytics service, .NET 8 and ASP.NET Core for account and gateway services, PostgreSQL/Redis for storage and caching, and Docker with PowerShell/Shell scripts to run the stack.
         </div>
         <div class="cv-entry-stack">
-          <strong>Стек:</strong> Python 3.12, FastAPI, CatBoost, .NET 8, ASP.NET Core, PostgreSQL, Redis, Docker, PowerShell, Shell
+          <strong>Stack:</strong> Python 3.12, FastAPI, CatBoost, .NET 8, ASP.NET Core, PostgreSQL, Redis, Docker, PowerShell, Shell
         </div>
       </div>
     </div>
-
   </section>
 
-  <!-- ACHIEVEMENTS -->
   <section class="cv-section">
-    <div class="cv-section-title">Достижения</div>
+    <div class="cv-section-title">Achievements</div>
 
     <div class="cv-achievement">
       <div class="cv-achievement-year">2022</div>
       <div class="cv-achievement-text">
-        <strong>Победитель WorldSkills Russia 2022</strong> — категория «Разработка мультимедийных приложений» (язык: C#)
+        <strong>Winner of WorldSkills Russia 2022</strong> - category "Multimedia Application Development" (language: C#)
       </div>
     </div>
-
   </section>
 
   <section class="cv-section">
-    <div class="cv-section-title">Дополнительные ссылки</div>
+    <div class="cv-section-title">Additional links</div>
     <div class="cv-link-groups">
       <div class="cv-link-group">
-        <div class="cv-link-group-label">Репозитории</div>
+        <div class="cv-link-group-label">Repositories</div>
         <div class="cv-link-list">
           <a class="cv-link-pill" href="https://github.com/FuhFuhOrg/Televibe" target="_blank" rel="noopener">Televibe</a>
           <a class="cv-link-pill" href="https://github.com/SHA-unity-inc/TRPP_Main_Project" target="_blank" rel="noopener">TRPP</a>
@@ -678,18 +661,16 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="cv-section">
-    <div class="cv-section-title">О себе</div>
+    <div class="cv-section-title">About</div>
     <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">
-      Регулярно решаю задачи на алгоритмы и структуры данных. Умею работать как в команде, так и самостоятельно. Всегда соблюдаю дедлайны и быстро адаптируюсь к новым технологиям.
+      I regularly solve algorithmic and data-structure problems. I can work both in a team and independently, consistently meet deadlines, and adapt quickly to new technologies.
     </p>
   </section>
 
   <div class="cv-footer">
-    shainc.me/resume
+    shainc.me/en/resume
   </div>
-
 </div>
 
 <script src="/assets/locale.js"></script>
@@ -697,7 +678,7 @@
 <script>
   (function() {
     SiteLocale.initPage({
-      currentLanguage: 'ru',
+      currentLanguage: 'en',
       targets: {
         ru: '/resume/',
         en: '/en/resume/'
@@ -705,19 +686,7 @@
     });
 
     function getAgeLabel(age) {
-      var remainder10 = age % 10;
-      var remainder100 = age % 100;
-
-      if (remainder100 >= 11 && remainder100 <= 14) {
-        return age + ' лет';
-      }
-      if (remainder10 === 1) {
-        return age + ' год';
-      }
-      if (remainder10 >= 2 && remainder10 <= 4) {
-        return age + ' года';
-      }
-      return age + ' лет';
+      return age + ' years old';
     }
 
     function updateAge() {
@@ -744,7 +713,7 @@
 
       if (button) {
         button.disabled = true;
-        button.textContent = 'Собираю PDF...';
+        button.textContent = 'Generating PDF...';
       }
 
       try {
@@ -765,7 +734,7 @@
         await window.html2pdf()
           .set({
             margin: [20, 18, 20, 18],
-            filename: 'Artem_Shloma_Resume.pdf',
+            filename: 'Artem_Shloma_Resume_EN.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: {
               scale: 2,
@@ -786,12 +755,13 @@
           .save();
 
         if (isAutoMode && window.history && window.history.replaceState) {
-          window.history.replaceState({}, document.title, '/resume/');
+          window.history.replaceState({}, document.title, '/en/resume/');
         }
       } catch (error) {
         console.error(error);
+
         if (!isAutoMode) {
-          window.alert('Не удалось собрать PDF. Попробуй обновить страницу и повторить.');
+          window.alert('Failed to build the PDF. Refresh the page and try again.');
         }
       } finally {
         document.body.classList.remove('pdf-export');
