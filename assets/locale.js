@@ -195,6 +195,7 @@
   function initPage(config) {
     var currentLanguage = parseLanguage(config && config.currentLanguage);
     var targets = config && config.targets ? config.targets : {};
+    var disableAutoRedirect = Boolean(config && config.disableAutoRedirect);
     var queryLanguage = getSearchLanguage();
     var manualLanguage;
 
@@ -204,6 +205,14 @@
 
     updateSwitchers(currentLanguage);
     bindSwitchers();
+
+    if (disableAutoRedirect) {
+      if (queryLanguage) {
+        setManualLanguage(queryLanguage);
+      }
+
+      return Promise.resolve(currentLanguage);
+    }
 
     if (queryLanguage) {
       setManualLanguage(queryLanguage);

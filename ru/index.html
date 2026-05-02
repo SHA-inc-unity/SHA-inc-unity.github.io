@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Artem Shloma - Portfolio</title>
+  <title>Артём Шлома — Портфолио</title>
   <link rel="preconnect" href="https://ipapi.co" crossorigin />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -285,6 +285,15 @@
       padding: 1.6rem;
     }
     .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent); }
+    .about-card ul { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .about-card li {
+      font-size: .9rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .about-card li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
     .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
     .chip {
       display: inline-block;
@@ -297,6 +306,8 @@
       line-height: 1.4;
     }
     .chip-accent { border-color: var(--accent); color: var(--accent); background: rgba(88,166,255,.08); }
+    .chip-muted  { color: var(--muted); }
+
     .chip-group {
       display: flex;
       flex-direction: column;
@@ -375,11 +386,11 @@
 <nav>
   <div class="logo">SHA</div>
   <ul>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="/resume/" style="color:var(--accent);border:1px solid var(--accent);padding:.2rem .7rem;border-radius:6px;font-size:.82rem;">Resume</a></li>
+    <li><a href="#skills">Навыки</a></li>
+    <li><a href="#projects">Проекты</a></li>
+    <li><a href="#about">Обо мне</a></li>
+    <li><a href="#contact">Контакты</a></li>
+    <li><a href="/ru/resume/" style="color:var(--accent);border:1px solid var(--accent);padding:.2rem .7rem;border-radius:6px;font-size:.82rem;">Резюме</a></li>
     <li class="lang-switcher">
       <a href="/ru/" class="lang-link" data-lang-switch="ru">RU</a>
       <a href="/" class="lang-link" data-lang-switch="en">EN</a>
@@ -388,10 +399,10 @@
 </nav>
 
 <section class="hero">
-  <p class="section-label">Portfolio</p>
-  <h1 class="hero-name">Artem <span>Shloma</span></h1>
-  <p class="hero-title">Backend &amp; Mobile Developer · Java · C# · C++ · Python</p>
-  <p class="hero-title" style="font-size:.85rem;margin-top:.2rem;color:var(--muted)">Moscow · <span id="hero-age"></span></p>
+  <p class="section-label">Портфолио</p>
+  <h1 class="hero-name">Артём <span>Шлома</span></h1>
+  <p class="hero-title">Backend &amp; Mobile разработчик · Java · C# · C++ · Python</p>
+  <p class="hero-title" style="font-size:.85rem;margin-top:.2rem;color:var(--muted)">Москва · <span id="hero-age"></span></p>
 
   <div class="hero-badges">
     <span class="badge badge-blue">Java / Spring Boot</span>
@@ -404,13 +415,13 @@
   </div>
 
   <div class="achievement-banner">
-    🏆 <span>WorldSkills Russia 2022</span> - winner · "Multimedia Application Development" (C#)
+    🏆 <span>WorldSkills Russia 2022</span> — победитель · «Разработка мультимедийных приложений» (C#)
   </div>
 
   <div class="hero-links">
     <a href="https://github.com/SHA-inc-unity" class="btn btn-primary" target="_blank" rel="noopener">GitHub</a>
     <a href="https://t.me/Sharlotta" class="btn btn-outline" target="_blank" rel="noopener">Telegram</a>
-    <a href="/resume/?download=1" class="btn btn-outline btn-pdf" target="_blank" rel="noopener">Download PDF</a>
+    <a href="/ru/resume/?download=1" class="btn btn-outline btn-pdf" target="_blank" rel="noopener">Скачать PDF</a>
     <a href="mailto:zzz20042013@gmail.com" class="btn btn-outline">Email</a>
   </div>
 </section>
@@ -419,8 +430,8 @@
 
 <section id="skills">
   <div class="container">
-    <p class="section-label">Technology</p>
-    <h2>Skills</h2>
+    <p class="section-label">Технологии</p>
+    <h2>Навыки</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <h3><span class="skill-icon">☕</span> Java / JVM</h3>
@@ -455,7 +466,7 @@
           <span class="tag">C++</span>
           <span class="tag">STL</span>
           <span class="tag">SOLID</span>
-          <span class="tag">OOP</span>
+          <span class="tag">ООП</span>
         </div>
       </div>
 
@@ -479,7 +490,7 @@
       </div>
 
       <div class="skill-card">
-        <h3><span class="skill-icon">🛠️</span> Infrastructure</h3>
+        <h3><span class="skill-icon">🛠️</span> Инфраструктура</h3>
         <div class="skill-tags">
           <span class="tag">PostgreSQL</span>
           <span class="tag">Docker</span>
@@ -497,20 +508,20 @@
 
 <section id="projects">
   <div class="container">
-    <p class="section-label">Experience</p>
-    <h2>Projects</h2>
+    <p class="section-label">Опыт</p>
+    <h2>Проекты</h2>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-header">
           <span class="project-name">Televibe</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank" rel="noopener">Flutter client</a>
-          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank" rel="noopener">Server repository</a>
+          <a href="https://github.com/FuhFuhOrg/Televibe/tree/main/Flutter/tele_vibe" target="_blank" rel="noopener">Flutter-клиент</a>
+          <a href="https://github.com/FuhFuhOrg/Televibe_server" target="_blank" rel="noopener">Серверный репозиторий</a>
         </div>
         <p class="project-desc">
-          Used Dart and Flutter for the mobile client, WebSocket for real-time messaging,
-          PostgreSQL and Npgsql for data storage, and RSA/AES to secure transferred data.
+          Использовал Dart и Flutter для мобильного клиента, WebSocket для обмена сообщениями в реальном времени,
+          PostgreSQL и Npgsql для хранения данных, а RSA/AES для защиты передаваемой информации.
         </p>
         <div class="project-stack">
           <span class="badge badge-purple">Dart</span>
@@ -527,8 +538,8 @@
           <a href="https://github.com/SHA-unity-inc/TRPP_Main_Project" class="project-name" target="_blank" rel="noopener">TRPP Main Project</a>
         </div>
         <p class="project-desc">
-          Used Java and the Android SDK to build the mobile client, AndroidX Fragment for screen composition,
-          and OkHttp with Java Android WebSocket Client for networking.
+          Использовал Java и Android SDK для разработки мобильного клиента, AndroidX Fragment для построения экранов,
+          а OkHttp и Java Android WebSocket Client для сетевого взаимодействия приложения.
         </p>
         <div class="project-stack">
           <span class="badge badge-blue">Java</span>
@@ -541,11 +552,11 @@
 
       <div class="project-card">
         <div class="project-header">
-          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" class="project-name" target="_blank" rel="noopener">VKR 2026 - ML ModelBase</a>
+          <a href="https://github.com/SHA-inc-unity/VKR_2026_ModelBase" class="project-name" target="_blank" rel="noopener">VKR 2026 — ML ModelBase</a>
         </div>
         <p class="project-desc">
-          Used Python 3.12, FastAPI, and CatBoost for the ML analytics service, .NET 8 and ASP.NET Core
-          for account and gateway services, PostgreSQL/Redis for storage and caching, and Docker with PowerShell/Shell scripts to run the stack.
+          Использовал Python 3.12, FastAPI и CatBoost для аналитического ML-сервиса, .NET 8 и ASP.NET Core
+          для сервисов аккаунтов и gateway, PostgreSQL/Redis для хранения и кэша, Docker и скрипты PowerShell/Shell для запуска сервисов.
         </p>
         <div class="project-stack">
           <span class="badge badge-green">Python 3.12</span>
@@ -565,61 +576,61 @@
 
 <section id="about">
   <div class="container">
-    <p class="section-label">About</p>
-    <h2>Education and work style</h2>
+    <p class="section-label">О себе</p>
+    <h2>Образование и качества</h2>
     <div class="about-grid">
       <div class="about-card">
-        <h3>Education</h3>
+        <h3>🎓 Образование</h3>
         <div class="chip-group">
-          <span class="chip-group-label">University</span>
+          <span class="chip-group-label">Университет</span>
           <div class="chips">
-            <span class="chip chip-accent">MIREA - RTU</span>
-            <span class="chip">Institute of Information Technologies</span>
-            <span class="chip">Software Engineering</span>
+            <span class="chip chip-accent">МИРЭА — РТУ</span>
+            <span class="chip">ИИТ</span>
+            <span class="chip">Программная инженерия</span>
           </div>
         </div>
         <div class="chip-group">
-          <span class="chip-group-label">Degree</span>
+          <span class="chip-group-label">Степень</span>
           <div class="chips">
-            <span class="chip">Bachelor's degree - 2026</span>
+            <span class="chip">Бакалавриат · 2026</span>
           </div>
         </div>
         <div class="chip-group">
-          <span class="chip-group-label">Languages</span>
+          <span class="chip-group-label">Языки</span>
           <div class="chips">
-            <span class="chip">Russian - native</span>
-            <span class="chip">English - B2</span>
+            <span class="chip">Русский — родной</span>
+            <span class="chip">Английский — B2</span>
           </div>
         </div>
       </div>
 
       <div class="about-card">
-        <h3>Achievements</h3>
+        <h3>🏆 Достижения</h3>
         <div class="chips">
           <span class="chip chip-accent">WorldSkills Russia 2022 🥇</span>
-          <span class="chip">Multimedia applications</span>
-          <span class="chip">Language: C#</span>
+          <span class="chip">Мультимедийные приложения</span>
+          <span class="chip">Язык: C#</span>
         </div>
       </div>
 
       <div class="about-card">
-        <h3>Work style</h3>
+        <h3>💡 Подход к работе</h3>
         <div class="chips">
-          <span class="chip">Algorithms and data structures</span>
-          <span class="chip">Teamwork</span>
-          <span class="chip">Meeting deadlines</span>
-          <span class="chip">Fast adaptation</span>
-          <span class="chip">Professional courses</span>
+          <span class="chip">Алгоритмы и структуры данных</span>
+          <span class="chip">Командная работа</span>
+          <span class="chip">Соблюдение дедлайнов</span>
+          <span class="chip">Быстрая адаптация</span>
+          <span class="chip">Профессиональные курсы</span>
         </div>
       </div>
 
       <div class="about-card">
-        <h3>Location</h3>
+        <h3>📍 Местонахождение</h3>
         <div class="chips">
-          <span class="chip chip-accent">Moscow, Russia</span>
+          <span class="chip chip-accent">Москва, Россия</span>
           <span class="chip" id="age-chip"></span>
-          <span class="chip">Remote work</span>
-          <span class="chip">Office work</span>
+          <span class="chip">Удалённая работа</span>
+          <span class="chip">Офисная работа</span>
         </div>
       </div>
     </div>
@@ -630,13 +641,13 @@
 
 <section id="contact">
   <div class="container">
-    <p class="section-label">Contact</p>
-    <h2>Contacts</h2>
+    <p class="section-label">Связь</p>
+    <h2>Контакты</h2>
     <div class="contact-grid">
       <a href="tel:+79998113672" class="contact-card">
         <span class="contact-icon">📞</span>
         <div>
-          <div class="contact-label">Phone</div>
+          <div class="contact-label">Телефон</div>
           <div class="contact-value">+7 (999) 811-36-72</div>
         </div>
       </a>
@@ -676,7 +687,7 @@
       <a href="https://github.com/SHA-unity-inc" class="contact-card" target="_blank" rel="noopener">
         <span class="contact-icon">🏢</span>
         <div>
-          <div class="contact-label">GitHub org</div>
+          <div class="contact-label">GitHub Org</div>
           <div class="contact-value">SHA-unity-inc</div>
         </div>
       </a>
@@ -693,14 +704,15 @@
 </section>
 
 <footer>
-  <p>Artem Shloma · Moscow · 2026</p>
+  <p>Артём Шлома · Москва · 2026</p>
 </footer>
 
 <script src="/assets/locale.js"></script>
 <script>
   (function() {
     SiteLocale.initPage({
-      currentLanguage: 'en',
+      currentLanguage: 'ru',
+      disableAutoRedirect: true,
       targets: {
         ru: '/ru/',
         en: '/'
@@ -710,22 +722,13 @@
     var birth = new Date(2004, 8, 8);
     var now = new Date();
     var age = now.getFullYear() - birth.getFullYear();
-    var monthDelta = now.getMonth() - birth.getMonth();
-
-    if (monthDelta < 0 || (monthDelta === 0 && now.getDate() < birth.getDate())) {
-      age--;
-    }
-
-    var ageText = age + ' years old';
+    var m = now.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < birth.getDate())) age--;
+    var txt = age + ' ' + (age === 21 ? 'год' : age >= 22 && age <= 24 ? 'года' : 'лет');
     var chip = document.getElementById('age-chip');
+    if (chip) chip.textContent = txt;
     var heroAge = document.getElementById('hero-age');
-
-    if (chip) {
-      chip.textContent = ageText;
-    }
-    if (heroAge) {
-      heroAge.textContent = ageText;
-    }
+    if (heroAge) heroAge.textContent = txt;
   })();
 </script>
 </body>
