@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML Resume - Artem Shloma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://ipapi.co" crossorigin />
+  <link rel="stylesheet" href="/assets/resume.css" />
+</head>
+<body>
+
+<div class="print-bar is-actions-only">
+  <div class="print-actions">
+    <button class="btn-print btn-download" id="download-pdf" type="button">Download PDF</button>
+    <button class="btn-print" id="print-resume" type="button">Print</button>
+  </div>
+</div>
+
+<div class="print-note">ML-focused resume version.</div>
+
+<div class="paper">
+  <header class="cv-header">
+    <div>
+      <div class="cv-name">Artem Leonidovich Shloma</div>
+      <div class="cv-role">ML &amp; Neural Models Developer · Python · FastAPI · CatBoost</div>
+    </div>
+    <div class="cv-contacts">
+      Moscow, <span data-resume-age></span><br>
+      +7 (999) 811-36-72<br>
+      zzz20042013@gmail.com<br>
+      t.me/Sharlotta<br>
+      github.com/SHA-inc-unity
+    </div>
+  </header>
+
+  <section class="cv-intro is-single-column">
+    <div>
+      <div class="cv-summary-title">ML profile</div>
+      <p class="cv-summary-text">
+        Applied ML developer focused on Python services around model training, inference, and analytics APIs. Current ML work is centered on a FastAPI/CatBoost model service inside a multi-service graduation project.
+      </p>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Stack</div>
+    <table class="skills-table">
+      <tr>
+        <td>Python</td>
+        <td>Python 3.12, FastAPI</td>
+      </tr>
+      <tr>
+        <td>ML</td>
+        <td>CatBoost</td>
+      </tr>
+      <tr>
+        <td>Data</td>
+        <td>PostgreSQL, Redis</td>
+      </tr>
+      <tr>
+        <td>Backend</td>
+        <td>.NET 8, ASP.NET Core</td>
+      </tr>
+      <tr>
+        <td>Runtime</td>
+        <td>Docker, Docker Compose, Linux, Bash, PowerShell</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Relevant experience</div>
+    <div class="cv-entry">
+      <div class="cv-entry-date">2025 - present</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">VKR 2026 - ML ModelBase</div>
+        <div class="cv-entry-sub">Bachelor thesis project · ML analytics service</div>
+        <div class="cv-entry-desc">
+          Developed a Python/FastAPI ML service with CatBoost, PostgreSQL/Redis, and a .NET account/gateway layer.
+        </div>
+        <div class="cv-entry-stack"><strong>Stack:</strong> Python 3.12, FastAPI, CatBoost, .NET 8, ASP.NET Core, PostgreSQL, Redis, Docker</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2025 - present</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">Model service delivery</div>
+        <div class="cv-entry-sub">API and runtime integration</div>
+        <div class="cv-entry-desc">
+          Packaged FastAPI service startup and runtime with Docker, PostgreSQL, and Redis.
+        </div>
+        <div class="cv-entry-stack"><strong>Stack:</strong> FastAPI, Docker, PostgreSQL, Redis, PowerShell, Shell</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Education</div>
+    <div class="cv-entry">
+      <div class="cv-entry-date">2022 - 2026</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">MIREA - Russian Technological University</div>
+        <div class="cv-entry-sub">Software Engineering · Bachelor's degree</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cv-footer">shainc.me/resume/ml</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="/assets/resume.js"></script>
+<script>
+  ResumePage.init({
+    locale: 'en',
+    cleanUrl: '/resume/ml/',
+    pdfFilename: 'Artem_Shloma_Resume_ML.pdf',
+    messages: { generating: 'Generating PDF...', error: 'Failed to build the PDF. Refresh the page and try again.' }
+  });
+</script>
+</body>
+</html>

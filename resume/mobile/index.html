@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Resume - Artem Shloma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://ipapi.co" crossorigin />
+  <link rel="stylesheet" href="/assets/resume.css" />
+</head>
+<body>
+
+<div class="print-bar is-actions-only">
+  <div class="print-actions">
+    <button class="btn-print btn-download" id="download-pdf" type="button">Download PDF</button>
+    <button class="btn-print" id="print-resume" type="button">Print</button>
+  </div>
+</div>
+
+<div class="print-note">Mobile-focused resume version.</div>
+
+<div class="paper">
+  <header class="cv-header">
+    <div>
+      <div class="cv-name">Artem Leonidovich Shloma</div>
+      <div class="cv-role">Mobile Developer · Flutter · Android · Java/Kotlin</div>
+    </div>
+    <div class="cv-contacts">
+      Moscow, <span data-resume-age></span><br>
+      +7 (999) 811-36-72<br>
+      zzz20042013@gmail.com<br>
+      t.me/Sharlotta<br>
+      github.com/SHA-inc-unity
+    </div>
+  </header>
+
+  <section class="cv-intro is-single-column">
+    <div>
+      <div class="cv-summary-title">Mobile profile</div>
+      <p class="cv-summary-text">
+        Mobile developer focused on Flutter and Android clients, real-time WebSocket interaction, client-server integration, and practical UI implementation for Android and iOS-oriented projects.
+      </p>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Stack</div>
+    <table class="skills-table">
+      <tr>
+        <td>Flutter</td>
+        <td>Dart, Flutter</td>
+      </tr>
+      <tr>
+        <td>Android</td>
+        <td>Java, Kotlin, Android SDK, AndroidX Fragment, Android Studio</td>
+      </tr>
+      <tr>
+        <td>Networking</td>
+        <td>WebSocket, OkHttp, Java Android WebSocket Client, REST API</td>
+      </tr>
+      <tr>
+        <td>Build tools</td>
+        <td>Gradle, Gradle Kotlin DSL, Git, Linux</td>
+      </tr>
+      <tr>
+        <td>Backend</td>
+        <td>.NET, Java, PostgreSQL</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Relevant experience</div>
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024 - 2025</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">Televibe Flutter client</div>
+        <div class="cv-entry-sub">Flutter messenger client</div>
+        <div class="cv-entry-desc">
+          Developed a Flutter client for a messenger with WebSocket messaging and server interaction.
+        </div>
+        <div class="cv-entry-stack"><strong>Stack:</strong> Dart, Flutter, WebSocket, Android, iOS</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">TRPP Main Project</div>
+        <div class="cv-entry-sub">Native Android academic team project</div>
+        <div class="cv-entry-desc">
+          Built Android screens and networking with Java, Android SDK, AndroidX Fragment, OkHttp, and Java Android WebSocket Client.
+        </div>
+        <div class="cv-entry-stack"><strong>Stack:</strong> Java, Android SDK, AndroidX Fragment, Gradle Kotlin DSL, OkHttp, WebSocket Client</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">Televibe Android client module</div>
+        <div class="cv-entry-sub">Android client module</div>
+        <div class="cv-entry-desc">
+          Connected an Android client to server endpoints and WebSocket message flow.
+        </div>
+        <div class="cv-entry-stack"><strong>Stack:</strong> Java, Android Studio, WebSocket, Spring REST, Spring Security</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Education</div>
+    <div class="cv-entry">
+      <div class="cv-entry-date">2022 - 2026</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">MIREA - Russian Technological University</div>
+        <div class="cv-entry-sub">Software Engineering · Bachelor's degree</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cv-footer">shainc.me/resume/mobile</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="/assets/resume.js"></script>
+<script>
+  ResumePage.init({
+    locale: 'en',
+    cleanUrl: '/resume/mobile/',
+    pdfFilename: 'Artem_Shloma_Resume_Mobile.pdf',
+    messages: { generating: 'Generating PDF...', error: 'Failed to build the PDF. Refresh the page and try again.' }
+  });
+</script>
+</body>
+</html>

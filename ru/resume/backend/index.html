@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backend резюме — Артём Шлома</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://ipapi.co" crossorigin />
+  <link rel="stylesheet" href="/assets/resume.css" />
+</head>
+<body>
+
+<div class="print-bar is-actions-only">
+  <div class="print-actions">
+    <button class="btn-print btn-download" id="download-pdf" type="button">Скачать PDF</button>
+    <button class="btn-print" id="print-resume" type="button">Печать</button>
+  </div>
+</div>
+
+<div class="print-note">Backend-версия резюме.</div>
+
+<div class="paper">
+  <header class="cv-header">
+    <div>
+      <div class="cv-name">Шлома Артём Леонидович</div>
+      <div class="cv-role">Backend разработчик · C#/.NET · Java · Python/FastAPI</div>
+    </div>
+    <div class="cv-contacts">
+      г. Москва, <span data-resume-age></span><br>
+      +7 (999) 811-36-72<br>
+      zzz20042013@gmail.com<br>
+      t.me/Sharlotta<br>
+      github.com/SHA-inc-unity
+    </div>
+  </header>
+
+  <section class="cv-intro is-single-column">
+    <div>
+      <div class="cv-summary-title">Backend профиль</div>
+      <p class="cv-summary-text">
+        Backend-разработчик с фокусом на API-сервисы, real-time взаимодействие через WebSocket, системы с базами данных и контейнеризированный запуск. Рабочий стек: C#/.NET, Java/Spring, Python/FastAPI, PostgreSQL, Redis, Docker и Linux-инструменты.
+      </p>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Стек</div>
+    <table class="skills-table">
+      <tr>
+        <td>Языки</td>
+        <td>C#, Java, Python</td>
+      </tr>
+      <tr>
+        <td>Фреймворки</td>
+        <td>.NET 8, ASP.NET Core, Entity Framework Core, Spring Boot, FastAPI</td>
+      </tr>
+      <tr>
+        <td>API</td>
+        <td>REST API, WebSocket</td>
+      </tr>
+      <tr>
+        <td>Данные</td>
+        <td>PostgreSQL, Redis, Npgsql</td>
+      </tr>
+      <tr>
+        <td>Запуск</td>
+        <td>Docker, Docker Compose, Linux, Git, Bash, PowerShell</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Релевантный опыт</div>
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024 — 2025</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">Televibe Server</div>
+        <div class="cv-entry-sub">Backend мессенджера</div>
+        <div class="cv-entry-desc">
+          Разрабатывал REST/WebSocket backend для мессенджера: хранение в PostgreSQL, интеграцию через Npgsql и Docker/Linux-развёртывание.
+        </div>
+        <div class="cv-entry-stack"><strong>Стек:</strong> C#, .NET, ASP.NET Core, WebSocket, PostgreSQL, Npgsql, Docker, Linux, RSA/AES</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2025 — н.в.</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">VKR 2026 — ML ModelBase</div>
+        <div class="cv-entry-sub">Сервисный backend для ML-аналитики</div>
+        <div class="cv-entry-desc">
+          Разрабатывал приложение с Python/FastAPI ML-сервисом, .NET 8 сервисами аккаунтов и gateway, PostgreSQL/Redis-хранилищами и Docker-скриптами запуска.
+        </div>
+        <div class="cv-entry-stack"><strong>Стек:</strong> Python 3.12, FastAPI, .NET 8, ASP.NET Core, PostgreSQL, Redis, Docker</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-date">2024</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">Televibe Java module</div>
+        <div class="cv-entry-sub">Клиент-серверная часть мессенджера</div>
+        <div class="cv-entry-desc">
+          Работал с Java/Spring-сервисами, WebSocket-обменом, правами пользователей и подключением Android-клиента.
+        </div>
+        <div class="cv-entry-stack"><strong>Стек:</strong> Java, Spring REST, Spring Security, WebSocket, Android Studio</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Образование</div>
+    <div class="cv-entry">
+      <div class="cv-entry-date">2022 — 2026</div>
+      <div class="cv-entry-body">
+        <div class="cv-entry-title">МИРЭА — Российский технологический университет</div>
+        <div class="cv-entry-sub">Программная инженерия · Бакалавриат</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-title">Достижения</div>
+    <div class="cv-achievement">
+      <div class="cv-achievement-year">2022</div>
+      <div class="cv-achievement-text"><strong>Победитель WorldSkills Russia 2022</strong> — разработка мультимедийных приложений, C#</div>
+    </div>
+  </section>
+
+  <div class="cv-footer">shainc.me/ru/resume/backend</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="/assets/resume.js"></script>
+<script>
+  ResumePage.init({
+    locale: 'ru',
+    cleanUrl: '/ru/resume/backend/',
+    pdfFilename: 'Artem_Shloma_Resume_Backend_RU.pdf',
+    messages: { generating: 'Собираю PDF...', error: 'Не удалось собрать PDF. Попробуй обновить страницу и повторить.' }
+  });
+</script>
+</body>
+</html>
